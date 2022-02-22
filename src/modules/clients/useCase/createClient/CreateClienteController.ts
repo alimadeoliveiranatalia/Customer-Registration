@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { CreateClientUseCase } from './CreateClientUseCase';
 
-export class CreateClientController {
+class CreateClientController {
   constructor(private createClientUseCase: CreateClientUseCase) {}
 
   handle(request: Request, response: Response): Response {
@@ -16,3 +16,4 @@ export class CreateClientController {
     return response.status(201).send();
   }
 }
+export default CreateClientController;

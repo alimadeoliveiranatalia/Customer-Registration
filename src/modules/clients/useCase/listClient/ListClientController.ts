@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { ListClientUseCase } from './listClientUseCase';
 
-export class ListClientController {
+class ListClientController {
   constructor(private listClientUseCase: ListClientUseCase) {}
 
   handle(request: Request, response: Response): Response {
@@ -9,3 +9,4 @@ export class ListClientController {
     return response.json(allClients);
   }
 }
+export default ListClientController;

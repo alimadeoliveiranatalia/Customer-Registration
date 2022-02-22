@@ -9,4 +9,4 @@ class ListClientUseCase {
     return clientes;
   }
 }
-export { ListClientUseCase };
+export default ListClientUseCase;

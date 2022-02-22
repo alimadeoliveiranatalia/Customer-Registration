@@ -23,4 +23,4 @@ class ClientRepository implements IClientRepository {
     return this.clients;
   }
 }
-export { ClientRepository };
+export default ClientRepository;

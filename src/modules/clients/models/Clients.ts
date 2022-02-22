@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 
-export class Client {
+class Client {
   id?: string;
 
   statusCadastral!: number;
@@ -17,3 +17,4 @@ export class Client {
     }
   }
 }
+export default Client;

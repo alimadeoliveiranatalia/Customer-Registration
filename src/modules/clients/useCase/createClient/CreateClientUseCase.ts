@@ -16,8 +16,5 @@ class CreateClientUseCase {
     });
   }
 
-  doSomethig() {
-    return '';
-  }
 }
-export { CreateClientUseCase };
+export default CreateClientUseCase;
