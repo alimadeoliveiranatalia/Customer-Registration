@@ -1,4 +1,4 @@
-import { Client } from '../../models/Clients';
+import { Client } from '../../models/Client';
 import { IClientRepository } from '../../repositories/IClientRepository';
 
 class ListClientUseCase {
@@ -9,4 +9,4 @@ class ListClientUseCase {
     return clientes;
   }
 }
-export default ListClientUseCase;
+export { ListClientUseCase };

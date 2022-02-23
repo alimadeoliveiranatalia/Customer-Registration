@@ -16,4 +16,4 @@ class CreateClientController {
     return response.status(201).send();
   }
 }
-export default CreateClientController;
+export { CreateClientController };

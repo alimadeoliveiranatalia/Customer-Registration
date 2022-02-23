@@ -1,4 +1,4 @@
-import { Client } from '../models/Clients';
+import { Client } from '../models/Client';
 
 interface ICreateClientDTO {
   noCliente: string;
@@ -7,6 +7,7 @@ interface ICreateClientDTO {
   icExcluido: boolean;
 }
 interface IClientRepository {
+  updade({ noCliente }: Client[]): void;
   list(): Client[];
   create({ noCliente, statusCadastral, icExcluido }: ICreateClientDTO): void;
 }

@@ -17,4 +17,4 @@ class CreateClientUseCase {
   }
 
 }
-export default CreateClientUseCase;
+export { CreateClientUseCase };

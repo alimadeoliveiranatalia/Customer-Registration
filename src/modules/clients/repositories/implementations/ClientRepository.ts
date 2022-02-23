@@ -1,4 +1,4 @@
-import { Client } from '../../models/Clients';
+import { Client } from '../../models/Client';
 import { IClientRepository, ICreateClientDTO } from '../IClientRepository';
 
 class ClientRepository implements IClientRepository {
@@ -22,5 +22,17 @@ class ClientRepository implements IClientRepository {
   list(): Client[] {
     return this.clients;
   }
+
+  update({ noCliente }: Client[]) {
+    const nameAlreadyExist = this.clients.find(
+      client => client.noCliente === noCliente,
+    );
+
+    if (!nameAlreadyExist) {
+      return 'Client not found!';
+    }
+    this.clients.noClient = noCliente;
+    return this.clients;
+  }
 }
-export default ClientRepository;
+export { ClientRepository };
