@@ -2,7 +2,9 @@ import { ClientRepository } from '../../repositories/implementations/ClientRepos
 import { CreateClientController } from './CreateClienteController';
 import { CreateClientUseCase } from './CreateClientUseCase';
 
-const clientsRepository = new ClientRepository();
+const clientsRepository = ClientRepository.getInstance();
 const createClientUseCase = new CreateClientUseCase(clientsRepository);
-const createClienteController = new CreateClientController(createClientUseCase);
+const createClienteController = new CreateClientController(
+    createClientUseCase
+);
 export { createClienteController, createClientUseCase };

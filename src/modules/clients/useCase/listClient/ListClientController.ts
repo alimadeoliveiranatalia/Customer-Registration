@@ -9,4 +9,4 @@ class ListClientController {
     return response.json(allClients);
   }
 }
-export default ListClientController;
+export { ListClientController };

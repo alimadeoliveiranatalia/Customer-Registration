@@ -4,8 +4,17 @@ import { IClientRepository, ICreateClientDTO } from '../IClientRepository';
 class ClientRepository implements IClientRepository {
   private clients: Client[];
 
+  private static INSTANCE: ClientRepository;
+
   private constructor() {
     this.clients = [];
+  }
+
+  public static getInstance(): ClientRepository {
+    if (!ClientRepository.INSTANCE) {
+      ClientRepository.INSTANCE = new ClientRepository();
+    }
+    return ClientRepository.INSTANCE;
   }
 
   create({ noCliente, statusCadastral, icExcluido }: ICreateClientDTO): void {
