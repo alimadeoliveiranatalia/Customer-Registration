@@ -4,7 +4,5 @@ import { CreateClientUseCase } from './CreateClientUseCase';
 
 const clientsRepository = ClientRepository.getInstance();
 const createClientUseCase = new CreateClientUseCase(clientsRepository);
-const createClienteController = new CreateClientController(
-    createClientUseCase
-);
+const createClienteController = new CreateClientController(createClientUseCase);
 export { createClienteController, createClientUseCase };

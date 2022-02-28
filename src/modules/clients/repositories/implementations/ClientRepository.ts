@@ -32,16 +32,19 @@ class ClientRepository implements IClientRepository {
     return this.clients;
   }
 
-  update({ noCliente }: Client[]) {
-    const nameAlreadyExist = this.clients.find(
-      client => client.noCliente === noCliente,
-    );
+  update(noCliente: string): Client {
+    const clientIndex = this.clients.findIndex(client => client.id);
+    const updadteItem = {
+      ...this.clients[clientIndex],
+      noCliente,
+    };
+    this.clients[clientIndex] = updadteItem;
+    return updadteItem;
+  }
 
-    if (!nameAlreadyExist) {
-      return 'Client not found!';
-    }
-    this.clients.noClient = noCliente;
-    return this.clients;
+  findByname(noCliente: string): Client {
+    const nameClient = this.clients.find((client)=>client.noCliente===noCliente);
+    return nameClient;
   }
 }
 export { ClientRepository };

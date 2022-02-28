@@ -15,6 +15,5 @@ class CreateClientUseCase {
       icExcluido,
     });
   }
-
 }
 export { CreateClientUseCase };

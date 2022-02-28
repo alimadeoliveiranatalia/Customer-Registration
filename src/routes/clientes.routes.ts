@@ -13,7 +13,7 @@ clientsRoutes.get('/', (request, response) => {
   return listClienteController.handle(request, response);
 });
 
-clientsRoutes.put('/', (request, response) => {
+clientsRoutes.put('/:noCliente', (request, response) => {
   return updateClientecontroller.handle(request, response);
 });
 export { clientsRoutes };

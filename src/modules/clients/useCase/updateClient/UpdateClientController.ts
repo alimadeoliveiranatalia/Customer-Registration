@@ -6,7 +6,7 @@ class UpdateClientController {
 
   handle(request: Request, response: Response): Response {
     const { noCliente } = request.params;
-    const upClient = this.updateClientUseCase.execute({ noCliente });
+    const upClient = this.updateClientUseCase.execute(noCliente);
     return response.json(upClient);
   }
 }
