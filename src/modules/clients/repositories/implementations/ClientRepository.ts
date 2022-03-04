@@ -17,34 +17,36 @@ class ClientRepository implements IClientRepository {
     return ClientRepository.INSTANCE;
   }
 
-  create({ noCliente, statusCadastral, icExcluido }: ICreateClientDTO): void {
+  create({ noCliente }: ICreateClientDTO): Client {
     const client = new Client();
     Object.assign(client, {
       noCliente,
-      statusCadastral,
+      statusCadastral: 1,
       dtCadastro: new Date(),
-      icExcluido,
+      icExcluido: false,
     });
     this.clients.push(client);
+    return client;
   }
 
   list(): Client[] {
     return this.clients;
   }
 
-  update(noCliente: string): Client {
-    const clientIndex = this.clients.findIndex(client => client.id);
-    const updadteItem = {
-      ...this.clients[clientIndex],
-      noCliente,
-    };
-    this.clients[clientIndex] = updadteItem;
-    return updadteItem;
+  static update(receivedCliente: Client): Client {
+    const client = receivedCliente;
+    client.noCliente = 'new name';
+    return client;
   }
 
-  findByname(noCliente: string): Client {
-    const nameClient = this.clients.find((client)=>client.noCliente===noCliente);
-    return nameClient;
+  findById(id: string): Client | undefined {
+    const Id = this.clients.find(client => client.id === id);
+    return Id;
+  }
+
+  findByName(name: string): Client | undefined {
+    const Name = this.clients.find(client => client.noCliente === name);
+    return Name;
   }
 }
 export { ClientRepository };

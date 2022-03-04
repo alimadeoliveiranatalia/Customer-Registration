@@ -2,13 +2,12 @@ import { Client } from '../models/Client';
 
 interface ICreateClientDTO {
   noCliente: string;
-  statusCadastral: number;
-  icExcluido: boolean;
 }
 interface IClientRepository {
-  findByname(noCliente: string): Client;
-  update(noCliente: string): void;
+  update(receivedCliente: Client): Client;
+  findById(id: string): Client | undefined;
+  findByName(name: string): Client | undefined;
   list(): Client[];
-  create({ noCliente, statusCadastral, icExcluido }: ICreateClientDTO): void;
+  create({ noCliente }: ICreateClientDTO): Client;
 }
 export { ICreateClientDTO, IClientRepository };

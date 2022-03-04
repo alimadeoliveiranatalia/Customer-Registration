@@ -5,9 +5,9 @@ class UpdateClientController {
   constructor(private updateClientUseCase: UpdateClientUseCase) {}
 
   handle(request: Request, response: Response): Response {
-    const { noCliente } = request.params;
-    const upClient = this.updateClientUseCase.execute(noCliente);
-    return response.json(upClient);
+    const { id } = request.params;
+    const client = this.updateClientUseCase.execute(id);
+    return response.json(client);
   }
 }
 export { UpdateClientController };

@@ -5,15 +5,13 @@ class CreateClientController {
   constructor(private createClientUseCase: CreateClientUseCase) {}
 
   handle(request: Request, response: Response): Response {
-    const { noCliente, statusCadastral, icExcluido } = request.body;
+    const { noCliente } = request.body;
 
-    this.createClientUseCase.execute({
+    const user = this.createClientUseCase.execute({
       noCliente,
-      icExcluido,
-      statusCadastral,
     });
 
-    return response.status(201).send();
+    return response.status(201).json(user);
   }
 }
 export { CreateClientController };

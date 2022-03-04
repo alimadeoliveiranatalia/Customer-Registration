@@ -1,19 +1,17 @@
+import { Client } from '../../models/Client';
 import { IClientRepository } from '../../repositories/IClientRepository';
 
 interface IRequest {
   noCliente: string;
-  statusCadastral: number;
-  icExcluido: boolean;
 }
 class CreateClientUseCase {
   constructor(private clientsRepository: IClientRepository) {}
 
-  execute({ noCliente, statusCadastral, icExcluido }: IRequest): void {
-    this.clientsRepository.create({
+  execute({ noCliente }: IRequest): Client {
+    const user = this.clientsRepository.create({
       noCliente,
-      statusCadastral,
-      icExcluido,
     });
+    return user;
   }
 }
 export { CreateClientUseCase };
